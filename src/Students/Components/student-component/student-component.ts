@@ -38,7 +38,7 @@ export class StudentComponent {
   selectStudent(id: number): void {
     this.studentService.getStudentById(id).subscribe({
       next: (data) => (this.selectedStudent = data),
-      error: (err) => (this.error = 'Student not found.'),
+      error: (err) => ((this.error = 'Student not found.'), console.error(err)),
     });
   }
 
