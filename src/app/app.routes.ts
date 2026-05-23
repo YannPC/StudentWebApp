@@ -3,11 +3,10 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: 'students',
-    loadComponent: () =>
-      import('../Students/Components/student-component/student-component').then(
-        (m) => m.StudentComponent,
-      ),
+    loadChildren: () => import('../Students/student.routes').then((m) => m.routes),
+  },
+  {
+    path: '**',
     redirectTo: 'students',
-    pathMatch: 'full',
   },
 ];
