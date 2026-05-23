@@ -45,4 +45,8 @@ export class StudentComponent {
   clearSelection() {
     this.selectedStudent = null;
   }
+
+  async navigateToDetail(id: number): Promise<void> {
+    this.selectStudent(id);
+  }
 }
