@@ -25,19 +25,9 @@
         <td>{{ student.age }}</td>
         <td>{{ student.grade }}</td>
         <td>
-          <button (click)="selectStudent(student.id)">View</button>
+          <button (click)="viewStudent(student.id)">View</button>
         </td>
       </tr>
     </tbody>
   </table>
-
-  <!-- Selected Student Detail -->
-  <div *ngIf="selectedStudent" class="detail">
-    <h2>Student Detail</h2>
-    <p><strong>ID:</strong> {{ selectedStudent.id }}</p>
-    <p><strong>Name:</strong> {{ selectedStudent.name }}</p>
-    <p><strong>Age:</strong> {{ selectedStudent.age }}</p>
-    <p><strong>Grade:</strong> {{ selectedStudent.grade }}</p>
-    <button (click)="clearSelection()">Close</button>
-  </div>
 </div>

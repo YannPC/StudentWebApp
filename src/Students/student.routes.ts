@@ -8,7 +8,7 @@ export const routes: Routes = [
     component: StudentComponent,
   },
   {
-    path: 'view',
+    path: 'view/:id',
     component: StudentViewComponent,
   },
 ];
