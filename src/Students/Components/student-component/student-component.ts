@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Student } from '../../Models/Student-Contants';
 import { NgFor, NgIf } from '@angular/common';
 import { Router } from '@angular/router';
@@ -11,14 +11,12 @@ import { StudentService } from '../../Services/student-service';
   styleUrl: './student-component.css',
 })
 export class StudentComponent {
+  private router = inject(Router);
+  private studentService = inject(StudentService);
+
   students: Student[] = [];
   loading = false;
   error = '';
-
-  constructor(
-    private studentService: StudentService,
-    private router: Router,
-  ) {}
 
   ngOnInit(): void {
     this.loadStudents();

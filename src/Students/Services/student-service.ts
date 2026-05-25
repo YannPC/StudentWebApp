@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Inject, Injectable } from '@angular/core';
+import { inject, Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Student } from '../Models/Student-Contants';
 
@@ -9,7 +9,7 @@ import { Student } from '../Models/Student-Contants';
 export class StudentService {
   private apiUrl = 'http://localhost:5116';
 
-  constructor(private http: HttpClient) {}
+  private http = inject(HttpClient);
 
   // Get all students
   getAllStudents(): Observable<Student[]> {
