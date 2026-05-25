@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Student } from '../../Models/Student-Contants';
 import { NgFor, NgIf } from '@angular/common';
+import { Router } from '@angular/router';
 import { StudentService } from '../../Services/student-service';
 
 @Component({
@@ -11,11 +12,13 @@ import { StudentService } from '../../Services/student-service';
 })
 export class StudentComponent {
   students: Student[] = [];
-  selectedStudent: Student | null = null;
   loading = false;
   error = '';
 
-  constructor(private studentService: StudentService) {}
+  constructor(
+    private studentService: StudentService,
+    private router: Router,
+  ) {}
 
   ngOnInit(): void {
     this.loadStudents();
@@ -35,14 +38,7 @@ export class StudentComponent {
     });
   }
 
-  selectStudent(id: number): void {
-    this.studentService.getStudentById(id).subscribe({
-      next: (data) => (this.selectedStudent = data),
-      error: (err) => ((this.error = 'Student not found.'), console.error(err)),
-    });
-  }
-
-  clearSelection() {
-    this.selectedStudent = null;
+  async viewStudent(id: number): Promise<void> {
+    await this.router.navigate(['/students', 'view', id]);
   }
 }
