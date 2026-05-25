@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Student } from '../../Students/Models/Student-Contants';
 import { StudentService } from '../../Students/Services/student-service';
@@ -10,14 +10,12 @@ import { StudentService } from '../../Students/Services/student-service';
   styleUrl: './student-view-component.css',
 })
 export class StudentViewComponent implements OnInit {
+  private router = inject(Router);
+  private studentService = inject(StudentService);
+  private route = inject(ActivatedRoute);
+
   selectedStudent: Student | null = null;
   error = '';
-
-  constructor(
-    private route: ActivatedRoute,
-    private studentService: StudentService,
-    private router: Router,
-  ) {}
 
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
