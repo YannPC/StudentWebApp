@@ -12,7 +12,8 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>FirstName</th>
+        <th>LastName</th>
         <th>Age</th>
         <th>Grade</th>
         <th>Action</th>
@@ -21,7 +22,8 @@
     <tbody>
       <tr *ngFor="let student of students">
         <td>{{ student.id }}</td>
-        <td>{{ student.name }}</td>
+        <td>{{ student.firstName }}</td>
+        <td>{{ student.lastName }}</td>
         <td>{{ student.age }}</td>
         <td>{{ student.grade }}</td>
         <td>

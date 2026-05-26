@@ -37,6 +37,6 @@ export class StudentComponent {
   }
 
   async viewStudent(id: number): Promise<void> {
-    await this.router.navigate(['/students', 'view', id]);
+    await this.router.navigate(['/students-list', 'view', id]);
   }
 }
